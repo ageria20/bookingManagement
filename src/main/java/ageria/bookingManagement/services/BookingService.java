@@ -3,6 +3,7 @@ package ageria.bookingManagement.services;
 import ageria.bookingManagement.entities.Booking;
 import ageria.bookingManagement.entities.User;
 import ageria.bookingManagement.exceptions.NotFoundExceptionId;
+import ageria.bookingManagement.exceptions.ValidationException;
 import ageria.bookingManagement.repositories.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +18,14 @@ public class BookingService {
     private BookingRepository bookingRepository;
 
     public void saveBooking(Booking booking){
-        bookingRepository.save(booking);
-        System.out.println("Booking saved successfully");
+        if(bookingRepository.existsByBookingDate(booking.getBookingDate())){
+            throw new ValidationException("The booking with date already exists - save failed");
+        } else if ( bookingRepository.existsByWorkstationId(booking.getWorkstationId())) {
+            throw new ValidationException("The booking with the workstation selected already exists - save failed");
+        } else {
+            bookingRepository.save(booking);
+            System.out.println("Booking saved successfully");
+        }
     }
 
     public Booking findById(UUID id){

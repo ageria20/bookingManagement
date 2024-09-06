@@ -79,11 +79,16 @@ public class Runner implements CommandLineRunner {
         Booking booking1user1 = new Booking(user1FromDB, workstationVerdiFromDB, LocalDate.of(2024, 9, 6));
         Booking booking2user1 = new Booking(user1FromDB, workstationSordiFromDB, LocalDate.of(2024, 10, 16));
         Booking booking3user1 = new Booking(user1FromDB, workstationSantelliFromDB, LocalDate.of(2024, 11, 28));
+        Booking booking1user2 = new Booking(user2FromDB, workstationSantelliFromDB, LocalDate.of(2024, 12, 28));
+        Booking booking2user2 = new Booking(user2FromDB, workstationSantelliFromDB, LocalDate.of(2024, 12, 25));
+        bookingService.saveBooking(booking2user2);
 //        bookingService.saveBooking(booking1user1);
 //        bookingService.saveBooking(booking2user1);
 //        bookingService.saveBooking(booking3user1);
 
         workstationsService.findByRoomType(RoomType.PRIVATE).forEach(System.out::println);
+
+
 
 
 
