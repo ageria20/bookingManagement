@@ -5,12 +5,13 @@ import ageria.bookingManagement.entities.Workstation;
 import ageria.bookingManagement.enums.RoomType;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-@Configurable
+@Configuration
 public class BookingConfiguration {
 
 
-    @Bean
+    @Bean(name = "getBuilding")
     public Building getBuilding(){
         return new Building("Regione Calabria", "Viale Europa, 35","Catanzaro");
     }

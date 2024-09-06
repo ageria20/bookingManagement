@@ -25,9 +25,9 @@ public class Building {
     @OneToMany(mappedBy = "building")
     private List<Workstation> workstations;
 
-    public Building(String regioneCalabria, String name, String catanzaro) {
+    public Building(String name, String address, String catanzaro) {
         this.name = name;
-        this.address = regioneCalabria;
+        this.address = address;
         this.city = catanzaro;
     }
 }

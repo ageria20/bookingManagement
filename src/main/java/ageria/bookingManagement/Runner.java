@@ -1,9 +1,13 @@
 package ageria.bookingManagement;
 
+import ageria.bookingManagement.entities.Building;
 import ageria.bookingManagement.entities.User;
+import ageria.bookingManagement.services.BuildingService;
 import ageria.bookingManagement.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,6 +15,12 @@ public class Runner implements CommandLineRunner {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private BuildingService buildingService;
+
+    @Autowired
+    ApplicationContext ctx;
 
     @Override
     public void run(String... args) throws Exception {
@@ -24,6 +34,12 @@ public class Runner implements CommandLineRunner {
 //        userService.saveUser(user2);
 //        userService.saveUser(user3);
 //        userService.saveUser(user4);
+
+        Building newBuilding = (Building) ctx.getBean("getBuilding");
+        System.out.println(newBuilding);
+        buildingService.saveBuilding(newBuilding);
+
+
 
     }
 }
