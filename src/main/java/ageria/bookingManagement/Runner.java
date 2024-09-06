@@ -82,19 +82,19 @@ public class Runner implements CommandLineRunner {
         Booking booking1user1 = new Booking(user1FromDB, workstationVerdiFromDB, LocalDate.of(2024, 9, 6));
         Booking booking2user1 = new Booking(user1FromDB, workstationSordiFromDB, LocalDate.of(2024, 10, 16));
         Booking booking3user1 = new Booking(user1FromDB, workstationSantelliFromDB, LocalDate.of(2024, 11, 28));
-        Booking booking4user1 = new Booking(user1FromDB, workstationSantelliFromDB, LocalDate.of(2025, 1, 12));
+        Booking booking5user1 = new Booking(user1FromDB, workstationVerdiFromDB, LocalDate.of(2025, 12, 12));
         Booking booking1user2 = new Booking(user2FromDB, workstationSantelliFromDB, LocalDate.of(2024, 12, 28));
         Booking booking2user2 = new Booking(user2FromDB, workstationVerdiFromDB, LocalDate.of(2024, 10, 16));
         Booking booking3user2 = new Booking(user2FromDB, workstationSordiFromDB, LocalDate.of(2024, 12, 31));
         Booking booking1user3 = new Booking(user2FromDB, workstationSantelliFromDB, LocalDate.of(2024, 12, 25));
         Booking booking2user3 = new Booking(user2FromDB, workstationSordiFromDB, LocalDate.of(2024, 12, 25));
 
-        bookingService.saveBooking(booking4user1);
+//        bookingService.saveBooking(booking5user1);
 //        bookingService.saveBooking(booking1user1);
 //        bookingService.saveBooking(booking2user1);
 //        bookingService.saveBooking(booking3user1);
 
-        workstationsService.findByRoomType(RoomType.PRIVATE).forEach(System.out::println);
+        workstationsService.findByRoomType(RoomType.PRIVATE, "Catanzaro").forEach(System.out::println);
 
 
 

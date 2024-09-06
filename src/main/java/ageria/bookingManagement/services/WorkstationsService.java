@@ -1,6 +1,7 @@
 package ageria.bookingManagement.services;
 
 
+import ageria.bookingManagement.entities.Building;
 import ageria.bookingManagement.entities.Workstation;
 import ageria.bookingManagement.enums.RoomType;
 import ageria.bookingManagement.exceptions.NotFoundExceptionId;
@@ -45,8 +46,8 @@ public class WorkstationsService {
         System.out.println("Workstation con id: " + id + " e descrizione: " + description +  " e' stato aggiornato");
     }
 
-    public List<Workstation> findByRoomType(RoomType roomType){
-        return workstationRepository.findByRoomType(roomType);
+    public List<Workstation> findByRoomType(RoomType roomType, String city){
+        return workstationRepository.findByRoomTypeAndBuilding(roomType, city);
     }
 
 

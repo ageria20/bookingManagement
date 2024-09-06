@@ -21,7 +21,7 @@ public class BookingService {
         if(bookingRepository.existsByUserIdAndBookingDate(booking.getUserId(), booking.getBookingDate()) ){
             throw new ValidationException("The booking with date already exists - save failed");
         } else if (bookingRepository.existsByBookingDateAndWorkstationId(booking.getBookingDate(), booking.getWorkstationId())) {
-            throw new ValidationException("The booking with the workstation and date selected already exists - save failed");
+            throw new ValidationException("The booking with the workstation and date selected is already occupied - save failed");
         } else {
             bookingRepository.save(booking);
             System.out.println("Booking saved successfully");
