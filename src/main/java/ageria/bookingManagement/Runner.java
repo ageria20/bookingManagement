@@ -38,6 +38,9 @@ public class Runner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
+
+
 //        User user1 = new User("ageria", "Andrea Geria", "ageria@gmail.com");
 //        User user2 = new User("mgeria", "Mirko Geria", "mgeria@gmail.com");
 //        User user3 = new User("mabozzi", "Mirko Abozzi", "mabozzi@gmail.com");
@@ -59,7 +62,7 @@ public class Runner implements CommandLineRunner {
 //        userService.saveUser(user3);
 //        userService.saveUser(user4);
 
-        Building newBuilding = (Building) ctx.getBean("getBuilding");
+
 //        System.out.println(newBuilding);
         // buildingService.saveBuilding(newBuilding);
         Building buildingFromDB = buildingService.findById(UUID.fromString("101fc2fc-7ea8-4714-9484-7a1253c089ad"));
@@ -79,9 +82,14 @@ public class Runner implements CommandLineRunner {
         Booking booking1user1 = new Booking(user1FromDB, workstationVerdiFromDB, LocalDate.of(2024, 9, 6));
         Booking booking2user1 = new Booking(user1FromDB, workstationSordiFromDB, LocalDate.of(2024, 10, 16));
         Booking booking3user1 = new Booking(user1FromDB, workstationSantelliFromDB, LocalDate.of(2024, 11, 28));
+        Booking booking4user1 = new Booking(user1FromDB, workstationSantelliFromDB, LocalDate.of(2025, 1, 12));
         Booking booking1user2 = new Booking(user2FromDB, workstationSantelliFromDB, LocalDate.of(2024, 12, 28));
-        Booking booking2user2 = new Booking(user2FromDB, workstationSantelliFromDB, LocalDate.of(2024, 12, 25));
-        bookingService.saveBooking(booking2user2);
+        Booking booking2user2 = new Booking(user2FromDB, workstationVerdiFromDB, LocalDate.of(2024, 10, 16));
+        Booking booking3user2 = new Booking(user2FromDB, workstationSordiFromDB, LocalDate.of(2024, 12, 31));
+        Booking booking1user3 = new Booking(user2FromDB, workstationSantelliFromDB, LocalDate.of(2024, 12, 25));
+        Booking booking2user3 = new Booking(user2FromDB, workstationSordiFromDB, LocalDate.of(2024, 12, 25));
+
+        bookingService.saveBooking(booking4user1);
 //        bookingService.saveBooking(booking1user1);
 //        bookingService.saveBooking(booking2user1);
 //        bookingService.saveBooking(booking3user1);

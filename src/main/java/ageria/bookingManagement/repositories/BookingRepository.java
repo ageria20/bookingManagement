@@ -12,8 +12,14 @@ import java.util.UUID;
 
 public interface BookingRepository extends JpaRepository<Booking, UUID> {
 
-    boolean existsByBookingDate(LocalDate bookingDate);
+    boolean existsByUserIdAndBookingDate(User user, LocalDate bookingDate);
     boolean existsByWorkstationId(Workstation workstation);
+    boolean existsByBookingDateAndWorkstationId(LocalDate bookingDate, Workstation workstation);
+
+    List<Booking> findByBookingDateAndWorkstationId(LocalDate bookingDate, Workstation workstation);
+    List<Booking> findByUserIdAndBookingDate(User user, LocalDate bookingDate);
+
+    List<Booking> findByBookingDate(LocalDate bookingDate);
 
 
 

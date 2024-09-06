@@ -18,10 +18,10 @@ public class BookingService {
     private BookingRepository bookingRepository;
 
     public void saveBooking(Booking booking){
-        if(bookingRepository.existsByBookingDate(booking.getBookingDate())){
+        if(bookingRepository.existsByUserIdAndBookingDate(booking.getUserId(), booking.getBookingDate()) ){
             throw new ValidationException("The booking with date already exists - save failed");
-        } else if ( bookingRepository.existsByWorkstationId(booking.getWorkstationId())) {
-            throw new ValidationException("The booking with the workstation selected already exists - save failed");
+        } else if (bookingRepository.existsByBookingDateAndWorkstationId(booking.getBookingDate(), booking.getWorkstationId())) {
+            throw new ValidationException("The booking with the workstation and date selected already exists - save failed");
         } else {
             bookingRepository.save(booking);
             System.out.println("Booking saved successfully");
@@ -31,6 +31,8 @@ public class BookingService {
     public Booking findById(UUID id){
         return bookingRepository.findById(id).orElseThrow(() -> new NotFoundExceptionId(id));
     }
+
+
 
 //    public void checkDate(User user, LocalDate bookingDate){
 //        if(bookingRepository.existsByBookinDate(bookingDate)){

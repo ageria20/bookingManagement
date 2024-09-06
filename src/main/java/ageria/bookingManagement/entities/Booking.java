@@ -33,11 +33,14 @@ public class Booking {
     @Column
     private LocalDate bookingDate;
 
+    private LocalDate expired;
+
     public Booking() {}
 
     public Booking(User user, Workstation workstation, LocalDate bookingDate) {
         this.userId = user;
         this.workstationId = workstation;
         this.bookingDate = bookingDate;
+        this.expired = bookingDate.plusDays(1);
     }
 }
