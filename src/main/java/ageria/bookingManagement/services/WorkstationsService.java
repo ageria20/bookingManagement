@@ -50,5 +50,9 @@ public class WorkstationsService {
         return workstationRepository.findByRoomTypeAndBuilding(roomType, city);
     }
 
+    public List<Workstation> findPartialByRoomType(RoomType roomType, String city){
+        return workstationRepository.findByRoomTypeAndBuilding(roomType, city);
+    }
+
 
 }

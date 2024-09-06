@@ -15,4 +15,9 @@ public interface WorkstationRepository extends JpaRepository<Workstation, UUID> 
     @Query("SELECT w FROM Workstation w WHERE w.roomType = :roomType AND LOWER(w.building.city) LIKE LOWER(:city)")
     List<Workstation> findByRoomTypeAndBuilding(RoomType roomType,String city);
 
+    @Query("SELECT w FROM Workstation w WHERE w.roomType = :roomType AND LOWER(w.building.city) LIKE LOWER(CONCAT('%', :city, '%'))")
+    List<Workstation> findPartialByRoomTypeAndBuilding(RoomType roomType,String city);
+
+
+
 }
