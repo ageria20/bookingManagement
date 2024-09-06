@@ -32,6 +32,17 @@ public class BookingService {
         return bookingRepository.findById(id).orElseThrow(() -> new NotFoundExceptionId(id));
     }
 
+    public void deleteById(UUID id){
+        bookingRepository.deleteById(id);
+        System.out.println("Booking deleted successfully");
+    }
+
+    public void findByIdAndUpdateBookingDate(UUID id, LocalDate bookingDate){
+        Booking found = this.findById(id);
+        found.setBookingDate( bookingDate );
+        bookingRepository.save(found);
+    }
+
 
 
 //    public void checkDate(User user, LocalDate bookingDate){

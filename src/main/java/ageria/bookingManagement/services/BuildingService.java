@@ -23,4 +23,5 @@ public class BuildingService {
         return buildingRepository.findById(id).orElseThrow(() -> new NotFoundExceptionId(id));
     }
 
+
 }
