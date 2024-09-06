@@ -39,4 +39,36 @@ public class UserService {
        found.setFullName(name);
        userRepository.save(found);
     }
+
+    public void findByIdAndUpdateName(UUID id, String name){
+        User found = userRepository.findById(id).orElseThrow(() -> new NotFoundExceptionId(id));
+
+        found.setFullName(name);
+
+        userRepository.save(found);
+    }
+    public void findByIdAndUpdateUsername(UUID id, String username){
+        User found = userRepository.findById(id).orElseThrow(() -> new NotFoundExceptionId(id));
+
+        found.setUsername(username);
+
+        userRepository.save(found);
+    }
+    public void findByIdAndUpdateEmail(UUID id, String email){
+        User found = userRepository.findById(id).orElseThrow(() -> new NotFoundExceptionId(id));
+
+        found.setEmail(email);
+
+        userRepository.save(found);
+    }
+
+    public void findByIdAndUpdateEmail(UUID id,String fullName, String username, String email){
+        User found = userRepository.findById(id).orElseThrow(() -> new NotFoundExceptionId(id));
+
+        found.setFullName(fullName);
+        found.setUsername(username);
+        found.setEmail(email);
+
+        userRepository.save(found);
+    }
 }
