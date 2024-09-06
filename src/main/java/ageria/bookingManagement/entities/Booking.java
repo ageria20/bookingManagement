@@ -2,7 +2,9 @@ package ageria.bookingManagement.entities;
 
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Setter;
 
 import java.util.UUID;
 
@@ -11,6 +13,7 @@ import java.util.UUID;
 @Table(name = "bookings")
 public class Booking {
 
+    @Setter(AccessLevel.NONE)
     @Id
     @GeneratedValue
     private UUID id;
