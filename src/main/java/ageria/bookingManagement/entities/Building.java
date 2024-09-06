@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -16,7 +17,7 @@ public class Building {
     @Setter(AccessLevel.NONE)
     @Id
     @GeneratedValue
-    private Long id;
+    private UUID id;
 
     private String name;
     private String address;
@@ -30,4 +31,6 @@ public class Building {
         this.address = address;
         this.city = catanzaro;
     }
+
+    public Building() {}
 }

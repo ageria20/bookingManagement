@@ -43,4 +43,8 @@ public class Workstation {
         this.occupants = occupants;
         this.building = building;
     }
+
+    public Workstation() {
+
+    }
 }

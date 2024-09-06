@@ -26,4 +26,5 @@ public class Booking {
     @JoinColumn(name = "workstation_id", nullable = false)
     private Workstation workstationId;
 
+    public Booking() {}
 }

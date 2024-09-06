@@ -37,4 +37,7 @@ public class User {
         this.fullName = andreaGeria;
         this.email = mail;
     }
+
+    public User() {
+    }
 }

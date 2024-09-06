@@ -17,15 +17,34 @@ public class BookingConfiguration {
     }
 
     @Bean
-    public Workstation getWorkstationSalaVerdi(){
-        return new Workstation("Sala Verdi", RoomType.MEETING, 150, getBuilding());
+    public Workstation getWorkstationSalaVerdi() {
+        Workstation workstation = new Workstation();
+        workstation.setDescription("Sala Verdi");
+        workstation.setRoomType(RoomType.MEETING);
+        workstation.setOccupants(150);
+
+
+        return workstation;
     }
 
-    public Workstation getWorkstationSalaSordi(){
-        return new Workstation("Sala Sordi", RoomType.OPENSPACE, 350, getBuilding());
-    }
+    @Bean
+    public Workstation getWorkstationSalaSordi() {
+        Workstation workstation = new Workstation();
+        workstation.setDescription("Sala Sordi");
+        workstation.setRoomType(RoomType.OPENSPACE);
+        workstation.setOccupants(350);
 
-    public Workstation getWorkstationSalaSantelli(){
-        return new Workstation("Sala Santelli", RoomType.PRIVATE, 50, getBuilding());
+
+        return workstation;
+    }
+    @Bean
+    public Workstation getWorkstationSalaSantelli() {
+        Workstation workstation = new Workstation();
+        workstation.setDescription("Sala Santelli");
+        workstation.setRoomType(RoomType.PRIVATE);
+        workstation.setOccupants(50);
+
+
+        return workstation;
     }
 }

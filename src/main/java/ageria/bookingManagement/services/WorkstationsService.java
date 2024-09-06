@@ -18,6 +18,7 @@ public class WorkstationsService {
 
     public void saveWorkstations(Workstation workstation){
         workstationRepository.save(workstation);
+        System.out.println("Workstations saved successfully");
     }
 
     public Workstation findWorkstationById(UUID id){
@@ -26,7 +27,13 @@ public class WorkstationsService {
     }
 
     public void deleteById(UUID id){
+        if(!workstationRepository.existsById(id)){
+            throw new NotFoundExceptionId(id);
+
+        }else {
         workstationRepository.deleteById(id);
+        System.out.println("Workstations deleted successfully");
+        }
     }
 
     public void findWorkstationByIdAndUpdate(UUID id, String description){
