@@ -6,6 +6,8 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -26,5 +28,14 @@ public class Booking {
     @JoinColumn(name = "workstation_id", nullable = false)
     private Workstation workstationId;
 
+    @Column
+    private LocalDate bookingDate;
+
     public Booking() {}
+
+    public Booking(User user, Workstation workstation, LocalDate bookingDate) {
+        this.userId = user;
+        this.workstationId = workstation;
+        this.bookingDate = bookingDate;
+    }
 }
