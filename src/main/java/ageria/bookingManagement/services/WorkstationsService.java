@@ -2,11 +2,13 @@ package ageria.bookingManagement.services;
 
 
 import ageria.bookingManagement.entities.Workstation;
+import ageria.bookingManagement.enums.RoomType;
 import ageria.bookingManagement.exceptions.NotFoundExceptionId;
 import ageria.bookingManagement.repositories.WorkstationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -41,6 +43,10 @@ public class WorkstationsService {
         found.setDescription(description);
         workstationRepository.save(found);
         System.out.println("Workstation con id: " + id + " e descrizione: " + description +  " e' stato aggiornato");
+    }
+
+    public List<Workstation> findByRoomType(RoomType roomType){
+        return workstationRepository.findByRoomType(roomType);
     }
 
 

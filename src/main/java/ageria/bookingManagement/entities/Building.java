@@ -4,13 +4,15 @@ package ageria.bookingManagement.entities;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Data
+@Setter
+@Getter
 @Table(name = "buildings")
 public class Building {
 

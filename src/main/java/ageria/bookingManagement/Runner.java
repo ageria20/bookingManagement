@@ -4,6 +4,7 @@ import ageria.bookingManagement.entities.Booking;
 import ageria.bookingManagement.entities.Building;
 import ageria.bookingManagement.entities.User;
 import ageria.bookingManagement.entities.Workstation;
+import ageria.bookingManagement.enums.RoomType;
 import ageria.bookingManagement.services.BookingService;
 import ageria.bookingManagement.services.BuildingService;
 import ageria.bookingManagement.services.UserService;
@@ -81,6 +82,8 @@ public class Runner implements CommandLineRunner {
 //        bookingService.saveBooking(booking1user1);
 //        bookingService.saveBooking(booking2user1);
 //        bookingService.saveBooking(booking3user1);
+
+        workstationsService.findByRoomType(RoomType.PRIVATE).forEach(System.out::println);
 
 
 

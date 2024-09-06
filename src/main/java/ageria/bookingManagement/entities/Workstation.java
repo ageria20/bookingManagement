@@ -5,13 +5,15 @@ import ageria.bookingManagement.enums.RoomType;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Data
+@Setter
+@Getter
 @Table(name = "workstations")
 public class Workstation {
 
@@ -30,7 +32,7 @@ public class Workstation {
     @Column
     private Integer occupants;
 
-    @OneToMany(mappedBy = "workstationId")
+    @OneToMany(mappedBy = "workstationId", fetch=FetchType.EAGER)
     private List<Booking> bookings;
 
     @ManyToOne
@@ -46,5 +48,13 @@ public class Workstation {
 
     public Workstation() {
 
+    }
+
+    @Override
+    public String toString() {
+        return "Workstation = " +
+                "Description: " + description +
+                ", Room Type: " + roomType +
+                ", Occupants: " + occupants;
     }
 }
