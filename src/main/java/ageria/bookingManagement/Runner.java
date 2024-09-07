@@ -95,7 +95,7 @@ public class Runner implements CommandLineRunner {
 //        bookingService.saveBooking(booking3user1);
 
         try{
-        workstationsService.findByRoomType(RoomType.PRIVATE, "Catanzaro").forEach(System.out::println);
+        workstationsService.findByRoomType(RoomType.PRIVATE, "catanzaro").forEach(System.out::println);
         }catch(RuntimeException e){
             System.out.println(e.getCause());
         }
