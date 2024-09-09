@@ -53,15 +53,15 @@ class BookingManagementApplicationTests {
 
 	}
 
-//	@ParameterizedTest
-//	@CsvSource({"A", "M"})
-//	void checkUserNAme(String letterName){
-//		List<User> users = userService.findByNameStartingWithIgnoreCase(letterName);
-//		assertAll(
-//				() -> assertNotNull(users, "expected users not null"),
-//                () -> users.forEach(user -> assertNotNull(user.getUsername(), "expected username not null"))
-//		);
-//	}
+	@ParameterizedTest
+	@CsvSource({"A", "M"})
+	void checkUserNAme(String letterName){
+		List<User> users = userService.findByNameStartingWithIgnoreCase(letterName);
+		assertAll(
+				() -> assertNotNull(users, "expected users not null"),
+                () -> users.forEach(user -> assertNotNull(user.getUsername(), "expected username not null"))
+		);
+	}
 
 
 

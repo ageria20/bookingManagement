@@ -16,6 +16,8 @@ public interface BookingRepository extends JpaRepository<Booking, UUID> {
     boolean existsByWorkstationId(Workstation workstation);
     boolean existsByBookingDateAndWorkstationId(LocalDate bookingDate, Workstation workstation);
 
+
+
     List<Booking> findByBookingDateAndWorkstationId(LocalDate bookingDate, Workstation workstation);
     List<Booking> findByUserIdAndBookingDate(User user, LocalDate bookingDate);
 

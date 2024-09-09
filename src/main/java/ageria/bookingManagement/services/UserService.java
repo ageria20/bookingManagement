@@ -73,7 +73,7 @@ public class UserService {
         userRepository.save(found);
     }
 
-//    public List<User> findByNameStartingWithIgnoreCase(String letterName){
-//        return userRepository.findByFirstnameStartingWith(letterName);
-//    }
+    public List<User> findByNameStartingWithIgnoreCase(String letterName){
+        return userRepository.findByFullNameStartingWith(letterName);
+    }
 }
